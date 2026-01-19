@@ -285,7 +285,7 @@
 
 
 
-import { useEffect, useRef, useState, useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import toorDal from "../../assets/products/toor-dal.jpeg";
@@ -567,21 +567,41 @@ const ProductShowcase = () => {
           const radius = 220;
 
           return (
-            <motion.img
-              key={product.id}
-              src={product.image}
-              className="circle-product"
-              onClick={() => setProductIndex(i)}
-              style={{
-                transform: `
-                  translate(-50%, -50%)
-                  translate(${Math.cos(angle) * radius}px,
-                            ${Math.sin(angle) * radius}px)
-                  scale(${i === productIndex ? 1.3 : 0.8})
-                `,
-                opacity: i === productIndex ? 1 : 0.5,
-              }}
-            />
+          //   <motion.img
+          //     key={product.id}
+          //     src={product.image}
+          //     alt={product.name}
+          //     className="circle-product"
+          //     onClick={() => setProductIndex(i)}
+          //     style={{
+          //       transform: `
+          //         translate(-50%, -50%)
+          //         translate(${Math.cos(angle) * radius}px,
+          //                   ${Math.sin(angle) * radius}px)
+          //         scale(${i === productIndex ? 1.3 : 0.8})
+          //       `,
+          //       opacity: i === productIndex ? 1 : 0.5,
+          //     }}
+          //   />
+
+          <motion.img
+  key={product.id}
+  src={product.image}
+  alt="product"
+  className="circle-product"
+  onClick={() => setProductIndex(i)}
+  loading="lazy"
+  style={{
+    transform: `
+      translate(-50%, -50%)
+      translate(${Math.cos(angle) * radius}px,
+                ${Math.sin(angle) * radius}px)
+      scale(${i === productIndex ? 1.3 : 0.8})
+    `,
+    opacity: i === productIndex ? 1 : 0.5,
+  }}
+/>
+
           );
         })}
 
@@ -593,7 +613,11 @@ const ProductShowcase = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
           >
-            <img src={filteredProducts[productIndex]?.image} />
+           <img
+  src={filteredProducts[productIndex]?.image}
+  alt={filteredProducts[productIndex]?.name}
+/>
+
             <h3>{filteredProducts[productIndex]?.name}</h3>
             <p>{filteredProducts[productIndex]?.description}</p>
             <button onClick={() => setShowModal(true)}>Show More</button>
@@ -609,7 +633,7 @@ const ProductShowcase = () => {
             <div className="modal-grid">
               {filteredProducts.map((p) => (
                 <div key={p.id} className="modal-card">
-                  <img src={p.image} />
+                  <img src={p.image} alt={p.name} />
                   <h4>{p.name}</h4>
                   <p>{p.description}</p>
                 </div>
