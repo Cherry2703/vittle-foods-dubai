@@ -40,19 +40,19 @@ const Footer = () => {
             <div className="footer-contact-list">
               <div className="footer-contact-item">
                 <MapPin />
-                <span>Mumbai, Maharashtra, India</span>
+                <span>Hyderabad, Telangana, India</span>
               </div>
 
               <div className="footer-contact-item">
                 <Mail />
-                <a href="mailto:exports@vittlehealthyfoods.in">
-                  exports@vittlehealthyfoods.in
+                <a href="mailto:vatanfoods1200@gmail.com">
+                  vatanfoods1200@gmail.com
                 </a>
               </div>
 
               <div className="footer-contact-item">
                 <Phone />
-                <a href="tel:+919876543210">+91 98765 43210</a>
+                <a href="tel:+917306969299">+91 7306969299</a>
               </div>
             </div>
           </div>

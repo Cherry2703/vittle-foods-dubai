@@ -1,0 +1,291 @@
+/* ================= ROOT ================= */
+.product-showcase {
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #f7f5f0, #ffffff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 16px;
+  overflow: hidden;
+}
+
+/* ================= HEADING ================= */
+.showcase-heading {
+  text-align: center;
+  max-width: 720px;
+  margin-bottom: 60px;
+}
+
+.showcase-heading h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+}
+
+.showcase-heading p {
+  margin-top: 12px;
+  color: #666;
+  font-size: 15px;
+}
+
+/* ================= CIRCLE BASE ================= */
+.circle-wrapper {
+  position: relative;
+  width: 520px;
+  height: 520px;
+  margin-bottom: 80px;
+}
+
+/* ================= FILTER CIRCLE (NEW) ================= */
+.filter-circle {
+  width: 340px;
+  height: 340px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+/* ================= CIRCLES ================= */
+.outer-circle {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, #e6f2e9, #ffffff);
+  animation: pulse 6s ease-in-out infinite;
+}
+
+.outer-circle.small {
+  animation: none;
+}
+
+.inner-circle {
+  position: absolute;
+  inset: 60px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: inset 0 0 40px rgba(0,0,0,0.06);
+}
+
+.inner-circle.small {
+  inset: 40px;
+}
+
+/* ================= PRODUCTS ================= */
+.circle-product {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90px;
+  height: 120px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+/* ================= FILTER ITEMS ================= */
+.filter-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 8px 16px;
+  border-radius: 22px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #ffffff;
+  border: 1px solid #e3e3e3;
+  cursor: pointer;
+  white-space: nowrap;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+.filter-item:hover {
+  background: #2f6f4e;
+  color: #ffffff;
+}
+
+.filter-item.active {
+  background: #2f6f4e;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(47,111,78,0.4);
+}
+
+/* ================= FILTER CENTER ================= */
+.filter-center {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.filter-center h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2f6f4e;
+}
+
+/* ================= CENTER PRODUCT ================= */
+.center-product {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  pointer-events: none;
+}
+
+.center-product img {
+  width: 160px;
+  margin-bottom: 16px;
+}
+
+.center-product h3 {
+  font-size: 22px;
+}
+
+.center-product p {
+  font-size: 14px;
+  color: #666;
+  max-width: 260px;
+}
+
+.center-product button {
+  pointer-events: auto;
+  margin-top: 16px;
+  padding: 10px 22px;
+  border-radius: 30px;
+  background: #2f6f4e;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.center-product button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(47,111,78,0.4);
+}
+
+/* ================= NAV BUTTONS ================= */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.prev { left: -60px; }
+.next { right: -60px; }
+
+/* ================= MODAL ================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  padding: 40px;
+  z-index: 100;
+  overflow-y: auto;
+}
+
+.modal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.modal-card {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.modal-card:hover {
+  transform: translateY(-6px);
+}
+
+.modal-card img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+.close {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  font-size: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .circle-wrapper {
+    width: 420px;
+    height: 420px;
+  }
+
+  .filter-circle {
+    width: 280px;
+    height: 280px;
+  }
+
+  .circle-product {
+    width: 75px;
+    height: 100px;
+  }
+
+  .prev { left: -40px; }
+  .next { right: -40px; }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .circle-wrapper {
+    width: 320px;
+    height: 320px;
+  }
+
+  .filter-circle {
+    width: 240px;
+    height: 240px;
+  }
+
+  .circle-product {
+    width: 60px;
+    height: 80px;
+  }
+
+  .filter-item {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .center-product img {
+    width: 120px;
+  }
+
+  .prev,
+  .next {
+    display: none;
+  }
+}

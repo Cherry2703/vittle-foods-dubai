@@ -1,159 +1,623 @@
-import { useState, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { useLanguage } from '../../contexts/LanguageContext';
+// import { useEffect, useRef, useState } from "react";
+// import { motion, AnimatePresence } from "framer-motion";
 
-// Product images
-import toorDal from '../../assets/products/toor-dal.jpg';
-import maida from '../../assets/products/maida.jpg';
-import besan from '../../assets/products/besan.jpg';
-import turmeric from '../../assets/products/turmeric.jpg';
-import dryFruits from '../../assets/products/dry-fruits.jpg';
-import chili from '../../assets/products/chili.jpg';
-import basmati from '../../assets/products/basmati.jpg';
-import cumin from '../../assets/products/cumin.jpg';
+// import toorDal from "../../assets/products/toor-dal.jpg";
+// import basmati from "../../assets/products/basmati.jpg";
+// import dryFruits from "../../assets/products/dry-fruits.jpg";
+// import turmeric from "../../assets/products/turmeric.jpg";
+// import wheatFlour from "../../assets/products/maida.jpg";
+// import "./ProductShowcase.css";
 
-const products = [
-  { id: 1, name: 'Toor Dal', nameHi: 'तूर दाल', nameAr: 'توور دال', category: 'Pulses', image: toorDal, description: 'Premium quality split pigeon peas' },
-  { id: 2, name: 'Premium Maida', nameHi: 'मैदा', nameAr: 'مايدا', category: 'Flour', image: maida, description: 'Fine refined wheat flour' },
-  { id: 3, name: 'Besan', nameHi: 'बेसन', nameAr: 'بيسان', category: 'Flour', image: besan, description: 'Pure chickpea flour' },
-  { id: 4, name: 'Turmeric Powder', nameHi: 'हल्दी', nameAr: 'كركم', category: 'Spices', image: turmeric, description: 'Golden turmeric from Indian farms' },
-  { id: 5, name: 'Mixed Dry Fruits', nameHi: 'सूखे मेवे', nameAr: 'فواكه مجففة', category: 'Dry Fruits', image: dryFruits, description: 'Premium assorted dry fruits' },
-  { id: 6, name: 'Red Chili Powder', nameHi: 'लाल मिर्च', nameAr: 'فلفل أحمر', category: 'Spices', image: chili, description: 'Authentic Kashmiri red chili' },
-  { id: 7, name: 'Basmati Rice', nameHi: 'बासमती चावल', nameAr: 'أرز بسمتي', category: 'Rice', image: basmati, description: 'Aromatic long-grain basmati' },
-  { id: 8, name: 'Cumin Seeds', nameHi: 'जीरा', nameAr: 'كمون', category: 'Spices', image: cumin, description: 'Whole cumin seeds' },
+// /* ---------------- API / CMS READY DATA ---------------- */
+
+// const PRODUCTS = [
+//   {
+//     id: 1,
+//     category: "Pulses",
+//     name: "Toor Dal",
+//     description: "Premium quality pigeon peas, hygienically packed",
+//     image: toorDal,
+//   },
+//   {
+//     id: 2,
+//     category: "Rice",
+//     name: "Basmati Rice",
+//     description: "Long grain aromatic basmati rice",
+//     image: basmati,
+//   },
+//   {
+//     id: 3,
+//     category: "Spices",
+//     name: "Turmeric Powder",
+//     description: "High curcumin turmeric sourced from farms",
+//     image: turmeric,
+//   },
+//   {
+//     id: 4,
+//     category: "Dry Fruits",
+//     name: "Dry Fruits",
+//     description: "Premium quality dry fruits, hygienically packed",
+//     image: dryFruits,
+//   },
+//   {
+//     id: 5,
+//     category: "Flours",
+//     name: "Wheat Flour",
+//     description: "Premium quality wheat flour, hygienically packed",
+//     image: wheatFlour,
+//   },
+//   // 👉 Add top 15 only here
+// ];
+
+// const Filters = [
+//      {
+//           id:1,
+//           name:"Pulses"
+//      },
+//      {
+//           id:2,
+//           name : "Floures"
+//      },
+//      {
+//           id:3,
+//           name : "Dry Fruits"
+//      },
+//      {
+//           id:4,
+//           name : "Spices"
+//      },
+//      {
+//           id:5,
+//           name : "Rice"
+//      }
+// ]
+
+// /* ---------------- COMPONENT ---------------- */
+
+// const ProductShowcase = () => {
+//   const [index, setIndex] = useState(0);
+//   const [paused, setPaused] = useState(false);
+//   const [showModal, setShowModal] = useState(false);
+//   const containerRef = useRef(null);
+
+//   /* -------- AUTO ROTATION -------- */
+//   useEffect(() => {
+//     if (paused) return;
+//     const interval = setInterval(() => {
+//       setIndex((i) => (i + 1) % PRODUCTS.length);
+//     }, 3500);
+//     return () => clearInterval(interval);
+//   }, [paused]);
+
+//   /* -------- TOUCH SWIPE -------- */
+//   let startX = 0;
+
+//   const onTouchStart = (e) => {
+//     startX = e.touches[0].clientX;
+//   };
+
+//   const onTouchEnd = (e) => {
+//     const diff = startX - e.changedTouches[0].clientX;
+//     if (diff > 50) next();
+//     if (diff < -50) prev();
+//   };
+
+//   const next = () =>
+//     setIndex((i) => (i + 1) % PRODUCTS.length);
+//   const prev = () =>
+//     setIndex((i) => (i - 1 + PRODUCTS.length) % PRODUCTS.length);
+
+//   return (
+//     <section className="product-showcase">
+//       {/* CENTER HEADING */}
+//       <div className="showcase-heading">
+//         <h2>Our Premium Products</h2>
+//         <p>
+//           Explore our range of authentic Indian groceries, sourced with care and
+//           exported with excellence
+//         </p>
+//       </div>
+
+
+// {/* filters container */}
+//       <div
+//         className="circle-wrapper"
+//         ref={containerRef}
+//         onMouseEnter={() => setPaused(true)}
+//         onMouseLeave={() => setPaused(false)}
+//         onTouchStart={onTouchStart}
+//         onTouchEnd={onTouchEnd}
+//       >
+//         {/* OUTER GLOW CIRCLE */}
+//         <div className="outer-circle" />
+//         <div className="inner-circle" />
+
+//         {/* ROTATING PRODUCTS */}
+//         {Filters.map((filter, i) => {
+//           const angle =
+//             ((360 / Filters.length) * (i - index)) * (Math.PI / 180);
+//           const radius = 220;
+
+//           return (
+//             <motion.p
+//               key={filter.id}
+//               src={filter.image}
+//               className="circle-product"
+//               style={{
+//                 transform: `
+//                   translate(-50%, -50%)
+//                   translate(${Math.cos(angle) * radius}px,
+//                             ${Math.sin(angle) * radius}px)
+//                   scale(${i === index ? 1.3 : 0.8})
+//                 `,
+//                 zIndex: i === index ? 10 : 1,
+//                 opacity: i === index ? 1 : 0.5,
+//               }}
+//               transition={{ type: "spring", stiffness: 80 }}
+//             />
+//           );
+//         })}
+
+//         {/* CENTER PRODUCT INFO */}
+//         <AnimatePresence mode="wait">
+//           <motion.div
+//             key={PRODUCTS[index].id}
+//             className="center-product"
+//             initial={{ opacity: 0, scale: 0.85 }}
+//             animate={{ opacity: 1, scale: 1 }}
+//             exit={{ opacity: 0 }}
+//           >
+//             <img alt="image loading..." src={PRODUCTS[index].image} />
+//             <h3>{PRODUCTS[index].name}</h3>
+//             <p>{PRODUCTS[index].description}</p>
+
+//             <button onClick={() => setShowModal(true)}>
+//               Show More
+//             </button>
+//           </motion.div>
+//         </AnimatePresence>
+
+//         {/* CONTROLS */}
+//         <button className="nav prev" onClick={prev}>‹</button>
+//         <button className="nav next" onClick={next}>›</button>
+//       </div>
+
+
+//       {/* CIRCLE CONTAINER */}
+//       <div
+//         className="circle-wrapper"
+//         ref={containerRef}
+//         onMouseEnter={() => setPaused(true)}
+//         onMouseLeave={() => setPaused(false)}
+//         onTouchStart={onTouchStart}
+//         onTouchEnd={onTouchEnd}
+//       >
+//         {/* OUTER GLOW CIRCLE */}
+//         <div className="outer-circle" />
+//         <div className="inner-circle" />
+
+//         {/* ROTATING PRODUCTS */}
+//         {PRODUCTS.map((product, i) => {
+//           const angle =
+//             ((360 / PRODUCTS.length) * (i - index)) * (Math.PI / 180);
+//           const radius = 220;
+
+//           return (
+//             <motion.img
+//               key={product.id}
+//               src={product.image}
+//               className="circle-product"
+//               style={{
+//                 transform: `
+//                   translate(-50%, -50%)
+//                   translate(${Math.cos(angle) * radius}px,
+//                             ${Math.sin(angle) * radius}px)
+//                   scale(${i === index ? 1.3 : 0.8})
+//                 `,
+//                 zIndex: i === index ? 10 : 1,
+//                 opacity: i === index ? 1 : 0.5,
+//               }}
+//               transition={{ type: "spring", stiffness: 80 }}
+//             />
+//           );
+//         })}
+
+//         {/* CENTER PRODUCT INFO */}
+//         <AnimatePresence mode="wait">
+//           <motion.div
+//             key={PRODUCTS[index].id}
+//             className="center-product"
+//             initial={{ opacity: 0, scale: 0.85 }}
+//             animate={{ opacity: 1, scale: 1 }}
+//             exit={{ opacity: 0 }}
+//           >
+//             <img alt="image loading..." src={PRODUCTS[index].image} />
+//             <h3>{PRODUCTS[index].name}</h3>
+//             <p>{PRODUCTS[index].description}</p>
+
+//             <button onClick={() => setShowModal(true)}>
+//               Show More
+//             </button>
+//           </motion.div>
+//         </AnimatePresence>
+
+//         {/* CONTROLS */}
+//         <button className="nav prev" onClick={prev}>‹</button>
+//         <button className="nav next" onClick={next}>›</button>
+//       </div>
+
+//       {/* FULLSCREEN MODAL */}
+//       <AnimatePresence>
+//         {showModal && (
+//           <motion.div
+//             className="modal"
+//             initial={{ opacity: 0 }}
+//             animate={{ opacity: 1 }}
+//             exit={{ opacity: 0 }}
+//           >
+//             <button className="close" onClick={() => setShowModal(false)}>×</button>
+
+//             <div className="modal-grid">
+//               {PRODUCTS.map((p) => (
+//                 <div key={p.id} className="modal-card">
+//                   <img alt="image loading..." src={p.image} />
+//                   <h4>{p.name}</h4>
+//                   <p>{p.description}</p>
+//                 </div>
+//               ))}
+//             </div>
+//           </motion.div>
+//         )}
+//       </AnimatePresence>
+//     </section>
+//   );
+// }
+
+
+// export default ProductShowcase;
+
+
+
+
+
+
+
+
+
+
+import { useEffect, useRef, useState, useMemo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+import toorDal from "../../assets/products/toor-dal.jpeg";
+import basmati from "../../assets/products/basmati.jpg";
+import turmeric from "../../assets/products/turmeric.jpg";
+import wheatFlour from "../../assets/products/wheat-flour.jpeg";
+import rawPeanut from "../../assets/products/raw-peanut.jpeg";
+import uradDal from "../../assets/products/urad-dal.jpeg";
+import brownChana from "../../assets/products/brown-chana.jpeg";
+import maida from "../../assets/products/maida.jpg";
+import riceFlour from "../../assets/products/rice-flour.jpg";
+import besan from "../../assets/products/besan.jpg";
+import walnuts from "../../assets/products/walnuts.jpg";
+import cashew from "../../assets/products/cashews.webp";
+import almonds from "../../assets/products/almonds.webp";
+import anjeer from "../../assets/products/anjeer.jpg";
+import pistachios from "../../assets/products/pistha.jpg";
+import cloves from "../../assets/products/cloves.webp";
+import cinnamon from "../../assets/products/cinnamon.webp";
+import cardamom from "../../assets/products/cardamom.jpg";
+import bayLeaf from "../../assets/products/bay-leaf.webp";
+import cumin from "../../assets/products/cumin.jpg";
+import blackPepper from "../../assets/products/black-pepper.webp";
+import "./ProductShowcase.css";
+
+/* ---------------- DATA ---------------- */
+
+const PRODUCTS = [
+  /* ================= PULSES ================= */
+  {
+    id: 1,
+    category: "Pulses",
+    name: "Toor Dal",
+    description: "Premium quality pigeon peas",
+    image: toorDal,
+  },
+  {
+    id: 3,
+    category: "Pulses",
+    name: "Brown Chana",
+    description: "Naturally sourced brown chana rich in protein",
+    image: brownChana,
+  },
+  {
+    id: 4,
+    category: "Pulses",
+    name: "Urad Dal (Whole)",
+    description: "Premium whole urad dal with rich taste",
+    image: uradDal,
+  },
+  {
+    id: 6,
+    category: "Pulses",
+    name: "Raw Peanut",
+    description: "High-grade raw peanuts ideal for cooking and roasting",
+    image: rawPeanut,
+  },
+
+  /* ================= RICE ================= */
+  {
+    id: 7,
+    category: "Rice",
+    name: "Basmati Rice",
+    description: "Long grain aromatic rice",
+    image: basmati,
+  },
+
+  /* ================= FLOURS ================= */
+  {
+    id: 8,
+    category: "Flours",
+    name: "Wheat Flour",
+    description: "Premium wheat flour",
+    image: wheatFlour,
+  },
+  {
+    id: 9,
+    category: "Flours",
+    name: "Maida",
+    description: "Refined wheat flour ideal for baking and cooking",
+    image: maida,
+  },
+  {
+    id: 10,
+    category: "Flours",
+    name: "Rice Flour",
+    description: "Fine rice flour used in traditional and modern recipes",
+    image: riceFlour,
+  },
+  {
+    id: 11,
+    category: "Flours",
+    name: "Gram Flour (Besan)",
+    description: "High-protein chickpea flour with rich aroma",
+    image: besan,
+  },
+  {
+    id: 12,
+    category: "Flours",
+    name: "Sooji Rava",
+    description: "Premium sooji rava ideal for traditional cooking",
+    image: maida, // ⚠️ Replace with sooji image if available
+  },
+
+  /* ================= DRY FRUITS ================= */
+  {
+    id: 13,
+    category: "Dry Fruits",
+    name: "Walnuts",
+    description: "Premium quality walnuts rich in omega-3 and nutrients",
+    image: walnuts,
+  },
+  {
+    id: 14,
+    category: "Dry Fruits",
+    name: "Cashew Nuts",
+    description: "Handpicked cashew nuts with rich taste and crunch",
+    image: cashew,
+  },
+  {
+    id: 15,
+    category: "Dry Fruits",
+    name: "Almonds",
+    description: "High-grade almonds packed with protein and energy",
+    image: almonds,
+  },
+  {
+    id: 16,
+    category: "Dry Fruits",
+    name: "Dried Figs (Anjeer)",
+    description: "Naturally dried figs with rich fiber and sweetness",
+    image: anjeer,
+  },
+  {
+    id: 17,
+    category: "Dry Fruits",
+    name: "Pistachios",
+    description: "Premium pistachios with authentic taste and aroma",
+    image: pistachios,
+  },
+
+  /* ================= SPICES ================= */
+  {
+    id: 19,
+    category: "Spices",
+    name: "Turmeric Powder",
+    description: "High curcumin turmeric",
+    image: turmeric,
+  },
+  {
+    id: 20,
+    category: "Spices",
+    name: "Cloves",
+    description: "Aromatic whole cloves with strong flavor",
+    image: cloves,
+  },
+  {
+    id: 21,
+    category: "Spices",
+    name: "Cinnamon",
+    description: "Premium cinnamon sticks with warm aroma",
+    image: cinnamon,
+  },
+  {
+    id: 22,
+    category: "Spices",
+    name: "Green Cardamom",
+    description: "High-grade green cardamom with rich fragrance",
+    image: cardamom,
+  },
+  {
+    id: 23,
+    category: "Spices",
+    name: "Bay Leaf",
+    description: "Naturally dried bay leaves for authentic flavor",
+    image: bayLeaf,
+  },
+  {
+    id: 24,
+    category: "Spices",
+    name: "Cumin Seeds",
+    description: "Fresh cumin seeds with strong aroma",
+    image: cumin,
+  },
+  {
+    id: 25,
+    category: "Spices",
+    name: "Black Pepper",
+    description: "Bold and spicy black pepper",
+    image: blackPepper,
+  }
 ];
 
-const categories = ['All', 'Pulses', 'Flour', 'Spices', 'Rice', 'Dry Fruits'];
+const FILTERS = ["Pulses", "Flours", "Dry Fruits", "Spices", "Rice"];
+
+/* ---------------- COMPONENT ---------------- */
 
 const ProductShowcase = () => {
-  const { t, language } = useLanguage();
-  const [activeCategory, setActiveCategory] = useState('All');
-  const [hoveredProduct, setHoveredProduct] = useState(null);
+  const [activeFilter, setActiveFilter] = useState("Pulses");
+  const [filterIndex, setFilterIndex] = useState(0);
+  const [productIndex, setProductIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  /* -------- FILTER PRODUCTS -------- */
+  const filteredProducts = useMemo(
+    () => PRODUCTS.filter((p) => p.category === activeFilter),
+    [activeFilter]
+  );
 
-  const filteredProducts =
-    activeCategory === 'All'
-      ? products
-      : products.filter((p) => p.category === activeCategory);
+  /* -------- AUTO ROTATE PRODUCTS -------- */
+  useEffect(() => {
+    if (paused || filteredProducts.length <= 1) return;
+    const interval = setInterval(() => {
+      setProductIndex((i) => (i + 1) % filteredProducts.length);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [paused, filteredProducts]);
 
-  const getProductName = (product) => {
-    if (language === 'hi') return product.nameHi;
-    if (language === 'ar') return product.nameAr;
-    return product.name;
+  /* -------- HANDLERS -------- */
+  const selectFilter = (name, i) => {
+    setActiveFilter(name);
+    setFilterIndex(i);
+    setProductIndex(0);
   };
 
   return (
-    <section id="products" className="section-padding bg-cream relative overflow-hidden">
-      <div className="absolute inset-0 pattern-lines" />
-
-      <div className="container mx-auto px-4 lg:px-8 relative" ref={ref}>
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <span className="inline-block text-primary font-semibold mb-4 tracking-wider uppercase text-sm">
-            Our Range
-          </span>
-          <h2 className="section-title">{t('products.title')}</h2>
-          <p className="section-subtitle mt-4">{t('products.subtitle')}</p>
-        </motion.div>
-
-        {/* Category Filter */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
-        >
-          {categories.map((category) => (
-            <motion.button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                activeCategory === category
-                  ? 'bg-primary text-primary-foreground shadow-medium'
-                  : 'bg-card text-foreground hover:bg-muted border border-border'
-              }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {category}
-            </motion.button>
-          ))}
-        </motion.div>
-
-        {/* Products Grid */}
-        <motion.div layout className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {filteredProducts.map((product, index) => (
-            <motion.div
-              key={product.id}
-              layout
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              onHoverStart={() => setHoveredProduct(product.id)}
-              onHoverEnd={() => setHoveredProduct(null)}
-              className="card-product group cursor-pointer"
-            >
-              <div className="relative aspect-square overflow-hidden">
-                <motion.img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover"
-                  animate={{ scale: hoveredProduct === product.id ? 1.1 : 1 }}
-                  transition={{ duration: 0.4 }}
-                />
-
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: hoveredProduct === product.id ? 1 : 0 }}
-                  className="absolute inset-0 bg-gradient-to-t from-earth/90 via-earth/50 to-transparent flex items-end p-4"
-                >
-                  <p className="text-primary-foreground text-sm">
-                    {product.description}
-                  </p>
-                </motion.div>
-
-                <div className="absolute top-3 right-3">
-                  <span className="px-3 py-1 bg-accent/90 text-accent-foreground text-xs font-semibold rounded-full backdrop-blur-sm">
-                    {product.category}
-                  </span>
-                </div>
-              </div>
-
-              <div className="p-4">
-                <h3 className="font-display font-semibold text-lg text-foreground group-hover:text-primary transition-colors">
-                  {getProductName(product)}
-                </h3>
-                <p className="text-sm text-muted-foreground mt-1">
-                  Export Grade Quality
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* View All Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-center mt-12"
-        >
-          <motion.button
-            className="btn-saffron"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {t('products.viewAll')}
-          </motion.button>
-        </motion.div>
+    <section className="product-showcase">
+      <div className="showcase-heading">
+        <h2>Our Premium Products</h2>
+        <p>Authentic Indian groceries sourced & exported with excellence</p>
       </div>
+
+      {/* ================= FILTER CIRCLE ================= */}
+      <div className="circle-wrapper filter-circle">
+        <div className="outer-circle small" />
+        <div className="inner-circle small" />
+
+        {FILTERS.map((filter, i) => {
+          const angle = ((360 / FILTERS.length) * (i - filterIndex)) * (Math.PI / 180);
+          const radius = 140;
+
+          return (
+            <motion.button
+              key={filter}
+              className={`filter-item ${filter === activeFilter ? "active" : ""}`}
+              onClick={() => selectFilter(filter, i)}
+              style={{
+                transform: `
+                  translate(-50%, -50%)
+                  translate(${Math.cos(angle) * radius}px,
+                            ${Math.sin(angle) * radius}px)
+                  scale(${filter === activeFilter ? 1.2 : 0.8})
+                `,
+                opacity: filter === activeFilter ? 1 : 0.5,
+              }}
+            >
+              {filter}
+            </motion.button>
+          );
+        })}
+
+        <div className="filter-center">
+          <h3>{activeFilter}</h3>
+        </div>
+      </div>
+
+      {/* ================= PRODUCT CIRCLE ================= */}
+      <div
+        className="circle-wrapper"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        <div className="outer-circle" />
+        <div className="inner-circle" />
+
+        {filteredProducts.map((product, i) => {
+          const angle = ((360 / filteredProducts.length) * (i - productIndex)) * (Math.PI / 180);
+          const radius = 220;
+
+          return (
+            <motion.img
+              key={product.id}
+              src={product.image}
+              className="circle-product"
+              onClick={() => setProductIndex(i)}
+              style={{
+                transform: `
+                  translate(-50%, -50%)
+                  translate(${Math.cos(angle) * radius}px,
+                            ${Math.sin(angle) * radius}px)
+                  scale(${i === productIndex ? 1.3 : 0.8})
+                `,
+                opacity: i === productIndex ? 1 : 0.5,
+              }}
+            />
+          );
+        })}
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={filteredProducts[productIndex]?.id}
+            className="center-product"
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <img src={filteredProducts[productIndex]?.image} />
+            <h3>{filteredProducts[productIndex]?.name}</h3>
+            <p>{filteredProducts[productIndex]?.description}</p>
+            <button onClick={() => setShowModal(true)}>Show More</button>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* ================= MODAL ================= */}
+      <AnimatePresence>
+        {showModal && (
+          <motion.div className="modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <button className="close" onClick={() => setShowModal(false)}>×</button>
+            <div className="modal-grid">
+              {filteredProducts.map((p) => (
+                <div key={p.id} className="modal-card">
+                  <img src={p.image} />
+                  <h4>{p.name}</h4>
+                  <p>{p.description}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

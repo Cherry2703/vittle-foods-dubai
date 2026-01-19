@@ -1,10 +1,14 @@
+
+
+
+
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Send, CheckCircle } from "lucide-react";
 import { useLanguage } from "../../contexts/LanguageContext";
 import "./Contact.css";
 
-const Contact = () => {
+const Contact = ({ enquiries, setEnquiries }) => {
   const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -20,10 +24,6 @@ const Contact = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const [enquiries, setEnquiries] = useState(() => {
-    return JSON.parse(localStorage.getItem("vitalfoods_enquiries") || "[]");
-  });
 
   /* ---------------- VALIDATION ---------------- */
   const validate = () => {
@@ -100,56 +100,50 @@ const Contact = () => {
 
         {/* Form */}
         <form className="contact-form" onSubmit={handleSubmit}>
-          <input name="name" placeholder="Name" value={formData.name} onChange={handleChange} />
+          <input
+            name="name"
+            placeholder="Name"
+            value={formData.name}
+            onChange={handleChange}
+          />
           {errors.name && <small>{errors.name}</small>}
 
-          <input name="company" placeholder="Company" value={formData.company} onChange={handleChange} />
+          <input
+            name="company"
+            placeholder="Company"
+            value={formData.company}
+            onChange={handleChange}
+          />
           {errors.company && <small>{errors.company}</small>}
 
-          <input name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
+          <input
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+          />
           {errors.email && <small>{errors.email}</small>}
 
-          <input name="country" placeholder="Country" value={formData.country} onChange={handleChange} />
+          <input
+            name="country"
+            placeholder="Country"
+            value={formData.country}
+            onChange={handleChange}
+          />
           {errors.country && <small>{errors.country}</small>}
 
-          <textarea name="message" placeholder="Message" value={formData.message} onChange={handleChange} />
+          <textarea
+            name="message"
+            placeholder="Message"
+            value={formData.message}
+            onChange={handleChange}
+          />
           {errors.message && <small>{errors.message}</small>}
 
-          <button type="submit" disabled={isSubmitting}>
+          <button type="submit" disabled={isSubmitting} className="contact-button">
             <Send /> {isSubmitting ? "Sending..." : "Submit"}
           </button>
         </form>
-
-        {/* TABLE */}
-        {enquiries.length > 0 && (
-          <div className="table-wrapper">
-            <h3>Enquiries</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Company</th>
-                  <th>Email</th>
-                  <th>Country</th>
-                  <th>Message</th>
-                  <th>Date</th>
-                </tr>
-              </thead>
-              <tbody>
-                {enquiries.map((e) => (
-                  <tr key={e.id}>
-                    <td>{e.name}</td>
-                    <td>{e.company}</td>
-                    <td>{e.email}</td>
-                    <td>{e.country}</td>
-                    <td>{e.message}</td>
-                    <td>{e.timestamp}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </div>
     </section>
   );

@@ -5,10 +5,10 @@ import { Leaf, Globe, Award, Truck, Shield } from 'lucide-react';
 import { useLanguage } from "../../contexts/LanguageContext";
 
 const stats = [
-  { key: 'years', value: '32+', icon: Award },
-  { key: 'countries', value: '40+', icon: Globe },
-  { key: 'products', value: '500+', icon: Leaf },
-  { key: 'tons', value: '50K+', icon: Truck },
+  { key: 'years', value: '15+', icon: Award },
+  { key: 'countries', value: '', icon: Globe },
+  { key: 'products', value: '', icon: Leaf },
+  { key: 'tons', value: '10+', icon: Truck },
 ];
 
 const features = [
@@ -23,7 +23,7 @@ const About = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   
   return (
-    <section id="about" className="section-padding bg-gradient-warm relative overflow-hidden">
+    <section id="about" className="section-padding bg-gradient-warm relative overflow-hidden mt-10">
       {/* Decorative Pattern */}
       <div className="absolute inset-0 pattern-dots opacity-50" />
       
@@ -35,11 +35,11 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-primary font-semibold mb-4 tracking-wider uppercase text-sm">
+          <span className="inline-block text-primary mb-4 tracking-wider uppercase text-sm font-bold">
             Our Story
           </span>
           <h2 className="section-title">{t('about.title')}</h2>
-          <p className="section-subtitle mt-4">{t('about.subtitle')}</p>
+          {/* <p className="section-subtitle mt-4">{t('about.subtitle')}</p> */}
         </motion.div>
         
         {/* Stats Grid */}

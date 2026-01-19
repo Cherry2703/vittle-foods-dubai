@@ -98,7 +98,7 @@ const Hero = () => {
           >
             <Wheat className="w-4 h-4 text-accent" />
             <span className="text-primary-foreground/90 text-sm font-medium">
-              Premium Indian Exports Since 1992
+              Premium Indian Exports Since 2010
             </span>
           </motion.div>
           
@@ -117,7 +117,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-xl md:text-2xl lg:text-3xl text-primary-foreground/90 font-light mb-6"
+            className="text-xl md:text-2xl lg:text-3xl font-bold text-primary-foreground/90  mb-6"
           >
             {t('hero.subtitle')}
           </motion.h2>
@@ -127,7 +127,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-lg text-primary-foreground/80 max-w-2xl mx-auto mb-10"
+            className="text-lg text-primary-foreground/80 max-w-2xl mx-auto mb-10 font-semibold"
           >
             {t('hero.description')}
           </motion.p>
@@ -137,11 +137,11 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className={`flex flex-col sm:flex-row items-center justify-center gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`}
+            className={`flex flex-col sm:flex-row items-center justify-center font-semibold gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`}
           >
             <motion.button
               onClick={scrollToProducts}
-              className="btn-hero p-2 flex items-center gap-2 bg-accent text-accent-foreground"
+              className="btn-hero p-2 flex items-center gap-2 bg-accent text-accent-foregroundv  font-semibold"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >

@@ -27,10 +27,10 @@ const translations = {
     // About
     'about.title': 'About Vittle Healthy Foods',
     'about.subtitle': 'Three Decades of Excellence in Food Export',
-    'about.description': 'Since 1992, Vital Foods has been a trusted name in Indian grocery exports. We source directly from farms across India, ensuring the highest quality products reach your markets.',
+    'about.description': 'Since 2010, Vital Foods has been a trusted name in Indian grocery exports. We source directly from farms across India, ensuring the highest quality products reach your markets.',
     'about.years': 'Years of Excellence',
-    'about.countries': 'Countries Served',
-    'about.products': 'Products Range',
+    'about.countries': 'Supplying to E-commerce (Packaging), Retail, and Bulk Distributors',
+    'about.products': 'Rice Experts',
     'about.tons': 'Tons Exported Annually',
     'about.sourcing': 'Direct Farm Sourcing',
     'about.sourcingDesc': 'We partner with over 500 farming communities across India',
@@ -62,8 +62,8 @@ const translations = {
     
     // Global
     'global.title': 'Global Presence',
-    'global.subtitle': 'Connecting Indian farms to tables worldwide',
-    'global.description': 'Our extensive logistics network ensures timely delivery to distributors across Middle East, Europe, Americas, Africa, and Asia-Pacific regions.',
+    'global.subtitle': 'Exporting Premium Indian Products to Global Destinations',
+    'global.description': 'Headquartered in Hyderabad, Telangana, India, we are strengthening our logistics capabilities as we expand into new regional and international markets.”',
     
     // Contact
     'contact.title': 'Business Enquiries',
@@ -77,7 +77,7 @@ const translations = {
     'contact.success': 'Thank you! Your enquiry has been submitted.',
     
     // Footer
-    'footer.tagline': 'Bringing the finest Indian groceries to the world since 1992.',
+    'footer.tagline': 'Bringing the finest Indian groceries to the world since 2010.',
     'footer.quickLinks': 'Quick Links',
     'footer.contactUs': 'Contact Us',
     'footer.madeIn': 'Made in India with',
@@ -102,7 +102,7 @@ const translations = {
     // About
     'about.title': 'वाइटल फूड्स के बारे में',
     'about.subtitle': 'खाद्य निर्यात में तीन दशकों की उत्कृष्टता',
-    'about.description': '1992 से, वाइटल फूड्स भारतीय किराना निर्यात में एक विश्वसनीय नाम रहा है। हम पूरे भारत के खेतों से सीधे सोर्सिंग करते हैं।',
+    'about.description': '2010 से, वाइटल फूड्स भारतीय किराना निर्यात में एक विश्वसनीय नाम रहा है। हम पूरे भारत के खेतों से सीधे सोर्सिंग करते हैं।',
     'about.years': 'वर्षों की उत्कृष्टता',
     'about.countries': 'देशों में सेवा',
     'about.products': 'उत्पाद श्रेणी',
@@ -152,7 +152,7 @@ const translations = {
     'contact.success': 'धन्यवाद! आपकी पूछताछ जमा कर दी गई है।',
     
     // Footer
-    'footer.tagline': '1992 से दुनिया को बेहतरीन भारतीय किराना पहुंचा रहे हैं।',
+    'footer.tagline': '2010 से दुनिया को बेहतरीन भारतीय किराना पहुंचा रहे हैं।',
     'footer.quickLinks': 'त्वरित लिंक',
     'footer.contactUs': 'संपर्क करें',
     'footer.madeIn': 'भारत में बनाया गया',
@@ -227,7 +227,7 @@ const translations = {
     'contact.success': 'شكرًا لك! تم إرسال استفسارك.',
     
     // Footer
-    'footer.tagline': 'نقدم أفضل البقالة الهندية للعالم منذ عام 1992.',
+    'footer.tagline': 'نقدم أفضل البقالة الهندية للعالم منذ عام 2010.',
     'footer.quickLinks': 'روابط سريعة',
     'footer.contactUs': 'اتصل بنا',
     'footer.madeIn': 'صنع في الهند بـ',

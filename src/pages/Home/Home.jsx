@@ -7,7 +7,7 @@ import ProductShowcase from "../../components/ProductShowcase/ProductShowcase";
 import Footer from "../../components/Footer/Footer"
 import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
 import GlobalPresence from "../../components/GlobalPresence/GlobalPresence";
-import Contact from "../../components/Contact/Contact";
+import ContactPage from "../../components/ContactPage/ContactPage";
 
 export default function Home() {
   return (
@@ -21,7 +21,7 @@ export default function Home() {
           <ProductShowcase />
           <WhyChooseUs />
           <GlobalPresence />
-          <Contact/>
+          <ContactPage/>
         </main>
 
         <Footer />

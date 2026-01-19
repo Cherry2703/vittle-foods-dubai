@@ -17,7 +17,7 @@ const GlobalPresence = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   
   return (
-    <section id="global" className="section-padding bg-cream-dark relative overflow-hidden">
+    <section id="global" className="section-padding bg-cream-dark relative overflow-hidden mt-10">
       <div className="container mx-auto px-4 lg:px-8 relative" ref={ref}>
         {/* Header */}
         <motion.div
@@ -26,7 +26,7 @@ const GlobalPresence = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-primary font-semibold mb-4 tracking-wider uppercase text-sm">
+          <span className="inline-block text-primary font-bold mb-4 tracking-wider uppercase text-sm">
             Worldwide Reach
           </span>
           <h2 className="section-title">{t('global.title')}</h2>
@@ -98,7 +98,7 @@ const GlobalPresence = () => {
         </motion.p>
         
         {/* Regions Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6  hidden">
           {regions.map((region, index) => (
             <motion.div
               key={region.name}
