@@ -319,14 +319,14 @@ const PRODUCTS = [
     id: 1,
     category: "Pulses",
     name: "Toor Dal",
-    description: "Premium quality pigeon peas",
+    description: "Premium quality Toor Dal",
     image: toorDal,
   },
   {
     id: 3,
     category: "Pulses",
     name: "Brown Chana",
-    description: "Naturally sourced brown chana rich in protein",
+    description: "Naturally sourced brown chana",
     image: brownChana,
   },
   {

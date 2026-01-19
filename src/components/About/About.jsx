@@ -8,7 +8,7 @@ const stats = [
   { key: 'years', value: '15+', icon: Award },
   { key: 'countries', value: '', icon: Globe },
   { key: 'products', value: '', icon: Leaf },
-  { key: 'tons', value: '10+', icon: Truck },
+  { key: 'tons', value: '100+', icon: Truck },
 ];
 
 const features = [
