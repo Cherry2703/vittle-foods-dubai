@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { CheckCircle2, Box, PlaneTakeoff, ShieldCheck, Factory, Leaf } from "lucide-react";
-import { useLanguage } from "../../contexts/LanguageContext";
+import { Box, PlaneTakeoff, Factory, Leaf } from "lucide-react";
 
 const steps = [
   { id: "01", title: "Global Sourcing", desc: "Direct partnerships with certified premium farms.", icon: Leaf, status: "completed" },
@@ -11,7 +10,6 @@ const steps = [
 ];
 
 const DashboardProcess = () => {
-  const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -89,3 +87,4 @@ const DashboardProcess = () => {
 };
 
 export default DashboardProcess;
+

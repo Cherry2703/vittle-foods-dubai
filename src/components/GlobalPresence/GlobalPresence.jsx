@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Globe2, Ship, Plane, Navigation, CheckCircle2 } from 'lucide-react';
+import { Globe2, Ship, Plane, Navigation } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 const regions = [

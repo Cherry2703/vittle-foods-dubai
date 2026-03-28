@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { useLanguage } from "../../contexts/LanguageContext";
 
 const navLinks = [
@@ -80,8 +79,8 @@ const Footer = () => {
                </button>
             </div>
             <ul className="space-y-2">
-              <li><a href="#" className="text-slate-500 hover:text-indigo-400 text-xs transition-colors">Trade Compliance</a></li>
-              <li><a href="#" className="text-slate-500 hover:text-indigo-400 text-xs transition-colors">Privacy Policy</a></li>
+              <li><a href="#/" className="text-slate-500 hover:text-indigo-400 text-xs transition-colors">Trade Compliance</a></li>
+              <li><a href="#/" className="text-slate-500 hover:text-indigo-400 text-xs transition-colors">Privacy Policy</a></li>
             </ul>
           </div>
         </div>

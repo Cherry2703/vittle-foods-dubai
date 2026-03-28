@@ -1,10 +1,8 @@
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { ShieldCheck, FileText, CheckCircle2, X, ExternalLink, Award } from "lucide-react";
-import { useLanguage } from "../../contexts/LanguageContext";
 
 const Certifications = () => {
-  const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   
@@ -265,7 +263,7 @@ const Certifications = () => {
 
               {/* Modal Footer */}
               <div className="px-8 py-5 border-t border-white/5 bg-[#0E1217] flex justify-end">
-                  <a href="#" className="flex items-center gap-2 text-indigo-400 hover:text-indigo-300 text-sm font-semibold transition-colors">
+                  <a href="#/" className="flex items-center gap-2 text-indigo-400 hover:text-indigo-300 text-sm font-semibold transition-colors">
                     <ExternalLink className="w-4 h-4" /> Open Original PDF Document
                   </a>
               </div>

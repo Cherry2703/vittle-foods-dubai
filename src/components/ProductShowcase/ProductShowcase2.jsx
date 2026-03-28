@@ -108,7 +108,7 @@ const ProductShowcase = () => {
                   animate={{ scale: hoveredProduct === product.id ? 1.1 : 1 }}
                   transition={{ duration: 0.4 }}
                 />
-
+ 
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: hoveredProduct === product.id ? 1 : 0 }}

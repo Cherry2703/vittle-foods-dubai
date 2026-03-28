@@ -1,7 +1,6 @@
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Send, CheckCircle, MessageCircle, MapPin, Mail, Phone, AlertCircleLoader, Loader2 } from "lucide-react";
-import { useLanguage } from "../../contexts/LanguageContext";
+import { Send, CheckCircle, MessageCircle, MapPin, Mail, Phone, Loader2 } from "lucide-react";
 import emailjs from '@emailjs/browser';
 
 // EmailJS Configuration - To be filled by the user
@@ -10,7 +9,6 @@ const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
 const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
 
 const Contact = () => {
-  const { t } = useLanguage();
   const ref = useRef(null);
   const formRef = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
