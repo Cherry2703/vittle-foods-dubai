@@ -11,12 +11,16 @@ const LanguageSwitcher = () => {
   const { language, setLanguage } = useLanguage();
   
   return (
-    <div className="lang-switcher  border-2 border-orange-500 rounded-full p-1">
+    <div className="flex items-center space-x-1 bg-white/5 border border-white/10 rounded-full p-1 backdrop-blur-sm">
       {languages.map((lang) => (
         <motion.button
           key={lang.code}
           onClick={() => setLanguage(lang.code)}
-          className={`lang-btn mr-2 cursor-pointer ${language === lang.code ? 'lang-btn-active' : ''}`}
+          className={`px-3 py-1 text-sm font-medium rounded-full transition-all duration-300 ${
+            language === lang.code 
+              ? 'bg-indigo-500 text-white shadow-lg shadow-indigo-500/25' 
+              : 'text-slate-400 hover:text-white hover:bg-white/10'
+          }`}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           title={lang.name}
@@ -27,6 +31,5 @@ const LanguageSwitcher = () => {
     </div>
   );
 }
-
 
 export default LanguageSwitcher;

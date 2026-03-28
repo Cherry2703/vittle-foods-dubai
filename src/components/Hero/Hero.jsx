@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Download, Leaf, Wheat } from 'lucide-react';
+import { ChevronRight, Globe2, ShieldCheck, TrendingUp, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 import heroWheat from '../../assets/hero-wheat.jpg';
@@ -9,12 +9,10 @@ import heroPulses from '../../assets/hero-pulses.jpg';
 
 const heroImages = [heroWheat, heroSpices, heroPulses];
 
-const floatingElements = [
-  { icon: '🌾', size: 40, x: '10%', delay: 0 },
-  { icon: '🌿', size: 35, x: '85%', delay: 2 },
-  { icon: '🍂', size: 30, x: '75%', delay: 4 },
-  { icon: '✨', size: 25, x: '20%', delay: 1 },
-  { icon: '🌰', size: 28, x: '90%', delay: 3 },
+const floatingStats = [
+  { icon: <Globe2 className="w-5 h-5 text-indigo-400" />, text: "50+ Countries Exported", x: "-10%", y: "20%", delay: 0 },
+  { icon: <ShieldCheck className="w-5 h-5 text-emerald-400" />, text: "Premium Quality Assured", x: "85%", y: "30%", delay: 2 },
+  { icon: <TrendingUp className="w-5 h-5 text-indigo-400" />, text: "Bulk Supply Ready", x: "75%", y: "60%", delay: 1 },
 ];
 
 const Hero = () => {
@@ -33,12 +31,12 @@ const Hero = () => {
   };
   
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Images */}
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Background Images with Heavy Dark Overlay to feel SaaS-like */}
       <AnimatePresence mode="wait">
         <motion.div
           key={currentImage}
-          initial={{ opacity: 0, scale: 1.1 }}
+          initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.5 }}
@@ -46,157 +44,134 @@ const Hero = () => {
         >
           <img
             src={heroImages[currentImage]}
-            alt="Vital Foods Hero"
+            alt="Vatan Foods Background"
             className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-[#0E1217]/80 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0E1217]" />
         </motion.div>
       </AnimatePresence>
       
-      {/* Gradient Overlay */}
-      <div className="overlay-gradient" />
+      {/* Abstract Glowing Blobs */}
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-indigo-600/20 rounded-full mix-blend-screen filter blur-[100px] opacity-50 animate-blob" />
+      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-emerald-600/20 rounded-full mix-blend-screen filter blur-[100px] opacity-50 animate-blob animation-delay-2000" />
       
-      {/* Floating Elements */}
-      {floatingElements.map((el, index) => (
-        <motion.div
-          key={index}
-          className="absolute pointer-events-none select-none"
-          style={{ 
-            left: el.x, 
-            top: '30%',
-            fontSize: el.size,
-          }}
-          animate={{
-            y: [0, -30, 0],
-            rotate: [0, 10, -10, 0],
-            opacity: [0.4, 0.8, 0.4],
-          }}
-          transition={{
-            duration: 6,
-            delay: el.delay,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        >
-          {el.icon}
-        </motion.div>
-      ))}
+      {/* Floating Stat Cards for SaaS feel */}
+      <div className="absolute inset-0 hidden lg:block pointer-events-none max-w-7xl mx-auto">
+        {floatingStats.map((stat, index) => (
+          <motion.div
+            key={index}
+            className="absolute glass px-4 py-3 rounded-2xl flex items-center gap-3 shadow-2xl"
+            style={{ left: stat.x, top: stat.y }}
+            animate={{
+              y: [0, -20, 0],
+            }}
+            transition={{
+              duration: 6,
+              delay: stat.delay,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          >
+            <div className="bg-white/10 p-2 rounded-xl">
+              {stat.icon}
+            </div>
+            <span className="text-white font-medium text-sm">{stat.text}</span>
+          </motion.div>
+        ))}
+      </div>
       
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 lg:px-8 text-center">
+      {/* Main Content */}
+      <div className="relative z-10 container mx-auto px-6 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-4xl mx-auto"
+          className="max-w-4xl mx-auto flex flex-col items-center"
         >
           {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+          <motion.a
+            href="#products"
+            initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-md border border-primary-foreground/20 rounded-full px-4 py-2 mb-8"
+            className="group inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full px-5 py-2 mb-8 transition-colors"
           >
-            <Wheat className="w-4 h-4 text-accent" />
-            <span className="text-primary-foreground/90 text-sm font-medium">
-              Premium Indian Exports Since 2010
+            <span className="bg-gradient-to-r from-indigo-500 to-emerald-500 text-transparent bg-clip-text font-semibold text-sm">
+              {t('hero.badge', 'New: Global Bulk Supply Program')}
             </span>
-          </motion.div>
+            <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" />
+          </motion.a>
           
           {/* Title */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="font-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-primary-foreground mb-6"
+            className="font-display text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-tight"
           >
-            {t('hero.title')}
+            {t('hero.title', 'Premium Food Products')} <br className="hidden md:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-emerald-400">
+              {t('hero.subtitle', 'Exported Worldwide 🌍')}
+            </span>
           </motion.h1>
           
           {/* Subtitle */}
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-xl md:text-2xl lg:text-3xl font-bold text-primary-foreground/90  mb-6"
-          >
-            {t('hero.subtitle')}
-          </motion.h2>
-          
-          {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-lg text-primary-foreground/80 max-w-2xl mx-auto mb-10 font-semibold"
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10"
           >
-            {t('hero.description')}
+            {t('hero.description', 'Bulk food supply for restaurants, retailers, and distributors across the globe. Unmatched quality, reliable logistics, and competitive pricing.')}
           </motion.p>
           
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className={`flex flex-col sm:flex-row items-center justify-center font-semibold gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className={`flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto ${isRTL ? 'sm:flex-row-reverse' : ''}`}
           >
             <motion.button
-              onClick={scrollToProducts}
-              className="btn-hero p-2 flex items-center gap-2 bg-accent text-accent-foregroundv  font-semibold"
-              whileHover={{ scale: 1.05 }}
+              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="w-full sm:w-auto px-8 py-4 rounded-xl flex items-center justify-center gap-2 bg-indigo-500 hover:bg-indigo-600 text-white font-medium shadow-[0_0_20px_rgba(99,102,241,0.4)] transition-all duration-300"
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Leaf className="w-5 h-5" />
-              {t('hero.explore')}
+              {t('hero.cta1', 'Request Quote')}
+              <ArrowRight className="w-5 h-5" />
             </motion.button>
             
-            <motion.a
-              href="#"
-              className="btn-hero-outline p-2 flex items-center gap-2"
-              whileHover={{ scale: 1.05 }}
+            <motion.button
+              onClick={scrollToProducts}
+              className="w-full sm:w-auto px-8 py-4 rounded-xl flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white font-medium border border-white/10 transition-all duration-300 backdrop-blur-sm"
+              whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Download className="w-5 h-5" />
-              {t('hero.catalog')}
-            </motion.a>
+              {t('hero.explore', 'View Products')}
+            </motion.button>
           </motion.div>
         </motion.div>
       </div>
-      
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="flex flex-col items-center gap-2 text-primary-foreground/60"
-        >
-          <span className="text-sm">Scroll to explore</span>
-          <ChevronDown className="w-6 h-6" />
-        </motion.div>
-      </motion.div>
-      
+
       {/* Image Indicators */}
-      <div className="absolute bottom-8 right-8 flex gap-2">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-20">
         {heroImages.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentImage(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+            className={`h-1.5 rounded-full transition-all duration-300 ${
               currentImage === index 
-                ? 'w-8 bg-accent' 
-                : 'bg-primary-foreground/40 hover:bg-primary-foreground/60'
+                ? 'w-8 bg-indigo-500' 
+                : 'w-2 bg-white/30 hover:bg-white/50'
             }`}
+            aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
     </section>
   );
 }
-
-
 
 export default Hero;
