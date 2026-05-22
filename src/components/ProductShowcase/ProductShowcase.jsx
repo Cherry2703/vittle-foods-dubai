@@ -4,16 +4,16 @@ import { ArrowRight, Search, X, ChevronRight } from "lucide-react";
 import { useLanguage } from "../../contexts/LanguageContext";
 
 // --- RICE & GRAINS IMAGES ---
-import toorDal from "../../assets/products/toor-dal.jpeg";
+import toorDal from "../../assets/products/toor dal.webp";
 import basmati from "../../assets/products/basmati.jpg";
-import wheatFlour from "../../assets/products/wheat-flour.jpeg";
-import uradDal from "../../assets/products/urad-dal.jpeg";
-import brownChana from "../../assets/products/brown-chana.jpeg";
+import wheatFlour from "../../assets/products/wheat-flour.webp";
+import uradDal from "../../assets/products/urad dal.webp";
+import brownChana from "../../assets/products/brown-chana.jpg";
 import maida from "../../assets/products/maida.jpg";
 import riceFlour from "../../assets/products/rice-flour.jpg";
 import besan from "../../assets/products/besan.jpg";
 import millets from "../../assets/products/millets.jpg";
-import rawPeanut from "../../assets/products/raw-peanut.jpeg";
+import rawPeanut from "../../assets/products/peanuts.jpeg";
 
 // --- SPICES & MASALAS IMAGES ---
 import turmeric from "../../assets/products/turmeric.jpg";

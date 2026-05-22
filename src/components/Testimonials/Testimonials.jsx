@@ -6,21 +6,21 @@ import { useLanguage } from "../../contexts/LanguageContext";
 const testimonials = [
   {
     quote: "Vatan Foods transformed our supply chain. Their premium basmati rice quality is unmatched, and their logistics transparency feels like a top-tier software platform.",
-    name: "Ahmed Al-Fayed",
-    role: "Procurement Director, Dubai Foods LLC",
-    initial: "A"
+    name: "Nitin Patil",
+    role: "PAN India Procurement Head of KPN.",
+    initial: "N"
   },
   {
     quote: "We've scaled our spice imports across Europe seamlessly. The custom packaging options and adherence to international standards make them our most reliable partner.",
-    name: "Sarah Jenkins",
-    role: "Head Buyer, EuroGrocers UK",
+    name: "SomNarayana",
+    role: "PAN India Procurement Head of Reliance.",
     initial: "S"
   },
   {
     quote: "Exceptional service and competitive pricing. The ability to request custom volume quotes easily has saved us countless hours of negotiation.",
-    name: "Rajiv Menon",
-    role: "Operations Manager, Global Distro",
-    initial: "R"
+    name: "Vijetha Founder",
+    role: "Founder of Vijetha.",
+    initial: "V"
   }
 ];
 

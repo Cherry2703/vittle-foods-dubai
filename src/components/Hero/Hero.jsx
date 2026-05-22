@@ -37,7 +37,7 @@ const Hero = () => {
         <motion.div
           key={currentImage}
           initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
+          animate={{ opacity: 1, scale: 1 }}F
           exit={{ opacity: 0 }}
           transition={{ duration: 1.5 }}
           className="absolute inset-0"

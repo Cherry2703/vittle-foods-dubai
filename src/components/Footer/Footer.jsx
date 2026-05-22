@@ -70,7 +70,7 @@ const Footer = () => {
                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                  <span className="text-white font-bold text-sm">FSSAI Certified</span>
                </div>
-               <p className="text-slate-400 text-xs font-mono mb-3">Lic: 13625010001224</p>
+               <p className="text-slate-400 text-xs font-mono mb-3">Lic: 13620010000206</p>
                <button 
                   onClick={() => scrollToSection("#certifications")}
                   className="w-full py-2 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 text-xs font-bold rounded-lg transition-colors border border-emerald-500/20"

@@ -24,7 +24,7 @@ export default function Home() {
           <Certifications />
           <About />
           <ProductShowcase />
-          <GlobalPresence />
+          {/* <GlobalPresence /> */}
           <WhyChooseUs />
           <DashboardProcess />
           <Pricing />

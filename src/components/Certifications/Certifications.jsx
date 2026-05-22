@@ -78,16 +78,16 @@ const Certifications = () => {
                 <div className="space-y-4 mb-8">
                   <div className="bg-[#1a2130]/50 p-4 rounded-xl border border-white/5 flex flex-col">
                     <span className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">License No</span>
-                    <span className="text-slate-200 font-mono text-lg tracking-wide">13625010001224</span>
+                    <span className="text-slate-200 font-mono text-lg tracking-wide">13620010000206</span>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-[#1a2130]/50 p-4 rounded-xl border border-white/5 flex flex-col">
                       <span className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Valid Till</span>
-                      <span className="text-slate-200 font-medium tracking-wide">2026</span>
+                      <span className="text-slate-200 font-medium tracking-wide">15th July 2026</span>
                     </div>
                     <div className="bg-[#1a2130]/50 p-4 rounded-xl border border-white/5 flex flex-col">
                       <span className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Location</span>
-                      <span className="text-slate-200 font-medium tracking-wide">Telangana, IN</span>
+                      <span className="text-slate-200 font-medium tracking-wide">IBRAHIMPATNAM, Hyderabad 501510</span>
                     </div>
                   </div>
                 </div>
@@ -124,22 +124,22 @@ const Certifications = () => {
                 <div className="space-y-4 mb-8">
                   <div className="bg-[#1a2130]/50 p-4 rounded-xl border border-white/5 flex flex-col">
                     <span className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">GSTIN</span>
-                    <span className="text-slate-200 font-mono text-lg tracking-wide">36AJXPK5887B1ZL</span>
+                    <span className="text-slate-200 font-mono text-lg tracking-wide">36AASFV8309F1ZO</span>
                   </div>
                   <div className="grid grid-col-1 gap-4">
                      <div className="bg-[#1a2130]/50 p-4 rounded-xl border border-white/5 flex flex-col">
                       <span className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Trade Name</span>
-                      <span className="text-slate-200 font-medium tracking-wide">M/S VITTLE FOODS</span>
+                      <span className="text-slate-200 font-medium tracking-wide">VATAN FOODS</span>
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-[#1a2130]/50 p-4 rounded-xl border border-white/5 flex flex-col">
                       <span className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Legal Name</span>
-                      <span className="text-slate-200 font-medium text-sm tracking-wide truncate">SURESH KOTHAMASU</span>
+                      <span className="text-slate-200 font-medium text-sm tracking-wide truncate">NENAVATH NAGESHWAR RAO</span>
                     </div>
                     <div className="bg-[#1a2130]/50 p-4 rounded-xl border border-white/5 flex flex-col">
                       <span className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">HQ</span>
-                      <span className="text-slate-200 font-medium text-sm tracking-wide truncate">Hyderabad, TG</span>
+                      <span className="text-slate-200 font-medium text-sm tracking-wide truncate">IBRAHIMPATNAM, Hyderabad 501510</span>
                     </div>
                   </div>
                 </div>
@@ -208,7 +208,7 @@ const Certifications = () => {
                       <div className="space-y-4 text-left max-w-sm mx-auto mb-10">
                         <div className="border-b border-slate-200 pb-2">
                           <span className="block text-[10px] uppercase font-bold text-slate-400 tracking-wider">Registration Number</span>
-                          <span className="font-mono text-lg font-bold text-slate-800">13625010001224</span>
+                          <span className="font-mono text-lg font-bold text-slate-800">13620010000206</span>
                         </div>
                         <div className="border-b border-slate-200 pb-2">
                           <span className="block text-[10px] uppercase font-bold text-slate-400 tracking-wider">Business Name</span>
@@ -219,7 +219,7 @@ const Certifications = () => {
                       <div className="flex justify-between items-end">
                         <div className="text-left">
                           <span className="block text-[10px] uppercase font-bold text-slate-400 tracking-wider">Valid Until</span>
-                          <span className="font-bold text-emerald-600">December 2026</span>
+                          <span className="font-bold text-emerald-600">15th July 2026</span>
                         </div>
                         <div className="w-24 border-t-2 border-slate-300 pt-2 text-center">
                           <span className="text-[10px] uppercase font-bold text-slate-400">Authorized</span>
@@ -240,15 +240,15 @@ const Certifications = () => {
                       <div className="space-y-4 text-left max-w-sm mx-auto mb-10">
                         <div className="border-b border-slate-200 pb-2">
                           <span className="block text-[10px] uppercase font-bold text-slate-400 tracking-wider">Registration Number (GSTIN)</span>
-                          <span className="font-mono text-lg font-bold text-slate-800">36AJXPK5887B1ZL</span>
+                          <span className="font-mono text-lg font-bold text-slate-800">36AASFV8309F1ZO</span>
                         </div>
                         <div className="border-b border-slate-200 pb-2">
                           <span className="block text-[10px] uppercase font-bold text-slate-400 tracking-wider">Legal Name</span>
-                          <span className="font-bold text-slate-700">SURESH KOTHAMASU</span>
+                          <span className="font-bold text-slate-700">NENAVATH NAGESHWAR RAO</span>
                         </div>
                         <div className="border-b border-slate-200 pb-2">
                           <span className="block text-[10px] uppercase font-bold text-slate-400 tracking-wider">Trade Name</span>
-                          <span className="font-bold text-slate-700">M/S VITTLE FOODS</span>
+                          <span className="font-bold text-slate-700">VATAN FOODS</span>
                         </div>
                       </div>
                       

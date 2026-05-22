@@ -42,14 +42,14 @@ const translations = {
     'nav.contact': 'Contact',
     
     // Hero
-    'hero.title': 'Vittle Healthy Foods',
+    'hero.title': 'Vatan Healthy Foods',
     'hero.subtitle': 'Delivering Authentic Indian Groceries to the World',
     'hero.description': 'Premium quality grains, spices, and pulses sourced directly from Indian farms. Trusted by distributors in 40+ countries.',
     'hero.explore': 'Explore Products',
     'hero.catalog': 'Download Catalog',
     
     // About
-    'about.title': 'About Vittle Healthy Foods',
+    'about.title': 'About Vatan Healthy Foods',
     'about.subtitle': 'Three Decades of Excellence in Food Export',
     'about.description': 'Since 2010, Vital Foods has been a trusted name in Indian grocery exports. We source directly from farms across India, ensuring the highest quality products reach your markets.',
     'about.years': 'Years of Excellence',
@@ -69,7 +69,7 @@ const translations = {
     'products.viewAll': 'View All Products',
     
     // Why Choose Us
-    'why.title': 'Why Choose Vittle Healthy Foods',
+    'why.title': 'Why Choose Vatan Healthy Foods',
     'why.subtitle': 'Your trusted partner for premium Indian grocery exports',
     'why.quality.title': 'Premium Quality',
     'why.quality.desc': 'Stringent quality control at every stage from farm to shipment',
