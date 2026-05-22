@@ -51,7 +51,7 @@ const translations = {
     // About
     'about.title': 'About Vatan Healthy Foods',
     'about.subtitle': 'Three Decades of Excellence in Food Export',
-    'about.description': 'Since 2010, Vital Foods has been a trusted name in Indian grocery exports. We source directly from farms across India, ensuring the highest quality products reach your markets.',
+    'about.description': 'Since 2010, Vatan Foods has been a trusted name in Indian grocery exports. We source directly from farms across India, ensuring the highest quality products reach your markets.',
     'about.years': 'Years of Excellence',
     'about.countries': 'Supplying to E-commerce (Packaging), Retail, and Bulk Distributors',
     'about.products': 'Rice Experts',
@@ -105,7 +105,7 @@ const translations = {
     'footer.quickLinks': 'Quick Links',
     'footer.contactUs': 'Contact Us',
     'footer.madeIn': 'Made in India with',
-    'footer.copyright': '© 2024 Vital Foods. All rights reserved.',
+    'footer.copyright': '© 2024 Vatan Foods. All rights reserved.',
   },
   hi: {
 
