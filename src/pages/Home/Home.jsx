@@ -5,7 +5,7 @@ import Certifications from "../../components/Certifications/Certifications";
 import About from "../../components/About/About";
 import ProductShowcase from "../../components/ProductShowcase/ProductShowcase";
 import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
-import GlobalPresence from "../../components/GlobalPresence/GlobalPresence";
+// import GlobalPresence from "../../components/GlobalPresence/GlobalPresence";
 import DashboardProcess from "../../components/DashboardProcess/DashboardProcess";
 import Pricing from "../../components/Pricing/Pricing";
 import Testimonials from "../../components/Testimonials/Testimonials";
